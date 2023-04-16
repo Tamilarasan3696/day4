@@ -9,35 +9,18 @@
 <body>
     <script>
         var request = new XMLHttpRequest();
-        request.open('GET','https://restcountries.com/v3.1/all',true)
+        request.open('GET','https://restcountries.com/v3.1/all')
         request.send();
-        request.onload= function(){
-            var data=JSON.parse(request.response)
+        request.onload=function(){
+            var data=JSON.parse(this.response)
             
-        console.log(data)
-        // name of the country
-        for(var i=0;i<data.length;i++)
-        console.log(data[i].name.common)
-
-        // population
-        for (var obj of data){
-            console.log(obj.population)
-        }
-        // region
-        for (var obj of data){
-            console.log(obj.region)
-        }
-        // flags
-        for(var obj of data){
-            console.log(obj.flags)
-        }
-        // subregion
-        for (var obj of data){
-            console.log(obj.subregion)
-        }
-
-
-
+            for(let i=0;i<data.length;i++){
+                console.log(data[i].flag)
+                console.log(data[i].name.common)
+                console.log(data[i].region)
+                console.log(data[i].subregion)
+                console.log(data[i].population)   
+            }
         }
     </script>
 </body>
